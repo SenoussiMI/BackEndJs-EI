@@ -10,7 +10,7 @@ exports.heroService = class heroService {
     async createHero(ModelHero) {
 
         if (ModelHero.name == null || ModelHero.titre == "") { throw "Merci de préciser le nome du hero"; }
-        if (ModelHero.name.lenght > 100) { throw "Votre titre ne peux etre supérieur à 100 carractères"; }
+        if (ModelHero.name.lenght > 100) { throw "Le nom ne peux etre supérieur à 100 carractères"; }
 
         return await Userbdd.create(ModelHero);
 
@@ -18,7 +18,7 @@ exports.heroService = class heroService {
 
     async update(ModelHero) {
 
-        if (ModelHero.name == null || ModelHero.name == "") { throw "Merci de préciser un titre"; }
+        if (ModelHero.name == null || ModelHero.name == "") { throw "Merci de préciser un nom"; }
         if (ModelHero.id == null || ModelHero.id == "") { throw "Merci de préciser un id"; }
 
         return await Userbdd.update(ModelHero);
@@ -36,8 +36,7 @@ exports.heroService = class heroService {
         if (!hero) {
             throw "Le hero avec cet ID n'existe pas";
         }
-
-        // Vérifier si le statut du hero est différent de "TERMINE"
+        
         else {
             return await Userbdd.delete(id);
         } 

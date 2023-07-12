@@ -4,14 +4,22 @@ const Hero = new heroController.HeroController();
 
 const router = express.Router();
 
-router.post(`/hero`, Hero.createHero);
+router.post(`/heroes`, Hero.createHero);
 
-router.post(`/hero/:id`, Hero.updateHero);
+router.post(`/heroes/:id`, Hero.updateHero);
 
-router.get('/heros', Hero.getHero);
+router.put('/heroes/:id', Hero.updateHeroRe);
 
-router.get('/heros/:id', Hero.getHero);
+router.get('/heroes', Hero.getHero);
 
-router.delete('/hero/:id', Hero.deleteHeroById);
+router.get('/heroes/:id', Hero.getHero);
+
+router.get('/heroes/:name', Hero.getHeroByName);
+
+router.delete('/heroes/:id', Hero.deleteHeroById);
+
+
+
+
 
 module.exports = router;
